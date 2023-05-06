@@ -3,6 +3,7 @@ from pathlib import Path
 import shutil
 import configparser
 import argparse
+import tempfile
 
 script_path = os.path.abspath(__file__)
 script_dir = os.path.dirname(script_path)
@@ -10,9 +11,11 @@ script_dir = os.path.dirname(script_path)
 config = configparser.ConfigParser()
 config.read(f'{script_dir}/config.ini')
 
-WORKING_DIR = config['DEFAULT']['WORKING_DIR']
+WORKING_DIR = os.path.abspath(config['DEFAULT']['WORKING_DIR'])
 SCRIPTS_DIR = os.path.abspath(config['DEFAULT']['SCRIPTS_DIR'])
 PYTHON_CMD = config['PROGRAMS']['PYTHON']
+COLABFOLD_CMD = config['PROGRAMS']['COLABFOLD_SIF']
+SINGULARITY_CMD = config['PROGRAMS']['SINGULARITY']
 
 DATA_DIR = os.path.abspath(os.path.join(WORKING_DIR, 'data', ))
 AF2RUNS_DIR = os.path.abspath(os.path.join(WORKING_DIR, 'data', 'af2_runs'))
@@ -97,6 +100,31 @@ def get_new_delimitations(start_ini, stop_ini, extension, protein_size):
     new_start = max(1, new_start - length_to_be_added_below)
     new_stop = min(protein_size, new_stop + length_to_be_added_above)
     return new_start, new_stop
+
+def change_singu_colab_cmd(runcolab_template, tmp_runcolab, colabfoldpath, singularitypath):
+    """
+    Changes the path to the colabfold and singularity command following the content of the config.ini
+    """
+    with open(runcolab_template) as fin:
+        with open(tmp_runcolab, 'w') as fout:
+            for ll in fin.readlines():
+                newll = None
+                sp1 = ll.split('=')
+                sp2 = ll.split()
+                if len(sp1) > 0 and sp1[0] == "COLAB_VERSION":
+                    newll = f"COLAB_VERSION={colabfoldpath}\n"
+                elif len(sp2) > 1:
+                    if sp2[1] == "exec":
+                        singu_execline = ' '.join(sp2[1:])
+                        newll = singularitypath + " " + singu_execline + "\n"
+                    else:
+                        newll = ll
+                else:
+                    newll = ll
+                fout.write(newll)
+    return
+
+
 
 def changeCmdLine_Npartners(filename, l_start, l_stop, l_uniprot, number_of_partners,
                             co_msa_mode='mixed_ali', rec_extension='delim', lig_extension='delim'):
@@ -239,7 +267,13 @@ def createCmdColab(SCRIPTS_DIR, FASTAMSA_DIR,
         fillGapLigand(ligand_start, ligand_stop, "output/MSAforAlphafold_mixed.a3m", "output/MSAforAlphafold_single.a3m")
         shutil.copy("output/MSAforAlphafold_single.a3m", os.path.join(af2_dir, f"MSA4af2_{count}_{pdb}_{tag}.a3m"))
 
-    shutil.copy(f"{os.path.join(SCRIPTS_DIR, 'run_colab.sh')}", af2_dir)
+    fd, tmp_runcolab = tempfile.mkstemp()
+    os.close(fd)
+
+    change_singu_colab_cmd(f"{os.path.join(SCRIPTS_DIR, 'run_colab_template.sh')}", tmp_runcolab, COLABFOLD_CMD, SINGULARITY_CMD)
+
+    shutil.copy(tmp_runcolab, os.path.join(af2_dir, 'run_colab.sh'))
+    os.remove(tmp_runcolab)
 
 if __name__ == "__main__":
     usage = " 4_PrepareDirectoryforAF2.py -i <protocol name> " \
