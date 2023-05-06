@@ -10,6 +10,20 @@ config = configparser.ConfigParser()
 config.read(f'{script_dir}/config.ini')
 
 PROFIT = config['PROGRAMS']['PROFIT']
+pat33 = re.compile("3.3")
+pat31 = re.compile("3.1")
+m33 = pat33.search(PROFIT)
+m31 = pat31.search(PROFIT)
+if m33:
+    profit_version = "3.3"
+elif m31:
+    profit_version = "3.1"
+else:
+    print("Profit versions 3.1 or 3.3 are required for running the script CAPRI.py. \n"
+          "Please install one of these versions following the instructions provided in http://www.bioinf.org.uk/software/profit/ \n"
+          "and add the full path of the executable with the version indicated in the filename ")
+
+#print(profit_version)
 
 # import time
 sys.path.append(os.path.join(script_dir, "tools"))
@@ -548,14 +562,21 @@ class CAPRI:
         
         
         if align:
+            if profit_version == "3.3":
+                protocole += "NOFIT\n"
+                protocole += "RMS\n"
             protocole += "ALIGN %s\n"%(self.chain[0])                  # SELECTED RESIDUES OF THE FIRST CHAIN
             protocole += "IGNOREMISSING\n"                  # because sometimes there is a missing 0 in the last res of Zdock decoy
             protocole += "FIT\n"                                       # STRUCTURAL ALIGNMENT BETWEEN FIRST CHAIN
+            if profit_version == "3.3":
+                protocole += "RMS\n"
             protocole += "ALIGN %s\n"%(self.chain[1])                  # SELECTED RESIDUES OF THE SECOND CHAIN
             protocole += "NOFIT\n"                                     # NO FITTING ! WE KEEP THE LAST FITTING IN MEMORY
             protocole += "RMS\n"                                       # COMPUTING RMS ON THE CHAIN B WITH ALIGNEMENT ON CHAIN A --> LRMS  A is receptor
             protocole += "IGNOREMISSING\n"                  # because sometimes there is a missing 0 in the last res of Zdock decoy
             protocole += "FIT\n"                                       # STRUCTURAL ALIGNMENT BETWEEN SECOND CHAIN
+            if profit_version == "3.3":
+                protocole += "RMS\n"
             protocole += "ALIGN %s\n"%(self.chain[0])                  # SELECTED RESIDUES OF THE SECOND CHAIN
             protocole += "NOFIT\n"                                     # NO FITTING ! WE KEEP THE LAST FITTING IN MEMORY
             protocole += "RMS\n"                                       # COMPUTING RMS ON THE CHAIN B WITH ALIGNEMENT ON CHAIN A --> LRMS B is receptor
@@ -608,7 +629,13 @@ class CAPRI:
         os.system("rm %s"%(protocole_file))
         os.system("rm %s"%(out_profit))
 
-        return rms[0],rms[2],rms[4],rms[1],rms[3]   # AvsA,BvsB,ABvsAB,LRMSrecA,LRMSrecB
+        if profit_version == "3.1":
+            return rms[0],rms[2],rms[4],rms[1],rms[3]   # AvsA,BvsB,ABvsAB,LRMSrecA,LRMSrecB
+        elif profit_version == "3.3":
+            if not align:
+                return rms[0],rms[2],rms[4],rms[1],rms[3]   # AvsA,BvsB,ABvsAB,LRMSrecA,LRMSrecB
+            else:
+                return rms[0],rms[3],rms[6],rms[2],rms[5]
 
 
 
