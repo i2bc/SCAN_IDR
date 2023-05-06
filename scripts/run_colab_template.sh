@@ -2,7 +2,7 @@
 
 # Inspired from https://github.com/deepmind/alphafold/issues/10
 #
-# singularity build https://github.com/tubiana/colabfold_singularity/blob/main/colabfold_receipe.def
+# singularity build adapted from https://github.com/tubiana/colabfold_singularity/blob/main/colabfold_receipe.def
 #
 ########## CHANGE THE OPTIONS BELOW THIS LINE
 COLAB_VERSION=/opt/alphafold/colabfold_container_v13.sif
