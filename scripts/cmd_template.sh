@@ -47,9 +47,6 @@ MAX_SEQ_HHBLITS=100000
 MAX_ALI=30000
 
 PYTHON=python
-#PROG=/store/EQUIPES/AMIG/PROGRAMMES/
-#HHBLITS_BIN=${PROG}/git/hh-suite/build/bin/
-#HHBLITS_DB=/store/EQUIPES/AMIG/DATABASES/UniRef30_2020_06/UniRef30_2020_06
 
 SCRIPTS=.
 ALPHASCRIPTS=${SCRIPTS}/inputAFscripts/
@@ -129,8 +126,6 @@ for i in ${index_partners[@]}; do
 
     fi
     
-    #head -n 1000 sequence_${i}_filtered.a3m > sequence_${i}_filtered_head1000.a3m
-    #if head => change in python /store/EQUIPES/AMIG/SCRIPTS/workspace/sequence/RetrieveIDMappingUniprot.py -i sequence_${i}_filtered.a3m -o sequence_${i}_filtered_FL.fasta
 
     if ${DO_FETCH_FL_SEQS}
     then
