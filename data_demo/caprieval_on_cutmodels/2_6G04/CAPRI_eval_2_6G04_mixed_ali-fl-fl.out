@@ -1,0 +1,26 @@
+# file RMSAvsA RMSBvsB RMSABvsAB LRMSA LRMSB FRNAT FRNNAT FRIR IRMS CAPRIrank DockQ DockQrank ref_index
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_5_model_1_v1.pdb 7.45 1.03 7.08 3.07 8.18 50.46 3.51 75.42 1.18 Medium 0.67 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_3_model_3_v1.pdb 7.50 1.03 7.13 3.18 8.31 46.79 5.56 74.58 1.18 Medium 0.65 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_2_model_4_v5.pdb 7.50 1.02 7.12 3.12 8.23 48.62 7.02 72.88 1.18 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_3_model_2_v2.pdb 7.47 1.02 7.09 3.05 8.20 46.79 7.27 75.42 1.20 Medium 0.65 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_3_model_3_v5.pdb 7.49 1.04 7.11 3.18 8.29 49.54 6.90 73.73 1.18 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_4_model_1_v5.pdb 7.44 1.02 7.06 3.05 8.14 52.29 3.39 72.88 1.17 Medium 0.68 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_5_model_1_v3.pdb 7.45 1.04 7.07 3.08 8.17 50.46 6.78 75.42 1.19 Medium 0.67 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_1_model_4_v4.pdb 7.47 0.99 7.09 3.05 8.17 49.54 6.90 74.58 1.16 Medium 0.67 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_2_model_2_v4.pdb 7.47 1.00 7.09 3.01 8.18 49.54 6.90 75.42 1.21 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_2_model_2_v3.pdb 7.46 1.01 7.08 3.00 8.18 46.79 7.27 76.27 1.20 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_3_model_5_v3.pdb 7.45 1.05 7.07 3.10 8.23 47.71 7.14 71.19 1.17 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_4_model_5_v4.pdb 7.45 1.03 7.08 3.07 8.21 49.54 8.47 71.19 1.17 Medium 0.67 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_1_model_4_v1.pdb 7.49 1.00 7.11 3.10 8.21 48.62 7.02 73.73 1.17 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_1_model_4_v2.pdb 7.49 1.02 7.11 3.13 8.22 50.46 6.78 75.42 1.18 Medium 0.67 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_5_model_5_v5.pdb 7.46 1.05 7.09 3.11 8.25 49.54 6.90 74.58 1.18 Medium 0.67 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_2_model_2_v1.pdb 7.48 1.01 7.10 3.02 8.21 48.62 7.02 75.42 1.19 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_5_model_1_v2.pdb 7.44 1.02 7.06 3.07 8.14 52.29 5.00 74.58 1.18 Medium 0.67 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_4_model_3_v2.pdb 7.49 1.05 7.12 3.19 8.30 47.71 7.14 73.73 1.19 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_5_model_1_v4.pdb 7.44 1.02 7.06 3.07 8.15 52.29 5.00 74.58 1.17 Medium 0.68 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_3_model_3_v4.pdb 7.48 1.04 7.11 3.18 8.28 48.62 10.17 74.58 1.18 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_1_model_2_v5.pdb 7.47 1.01 7.09 3.02 8.19 48.62 7.02 74.58 1.19 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_1_model_4_v3.pdb 7.47 1.03 7.10 3.11 8.21 47.71 7.14 74.58 1.18 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_4_model_3_v3.pdb 7.48 1.05 7.11 3.18 8.29 49.54 6.90 73.73 1.19 Medium 0.66 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_4_model_5_v1.pdb 7.46 1.03 7.09 3.08 8.23 49.54 8.47 73.73 1.16 Medium 0.67 Medium 0 
+af2_2_6G04_mixed_ali-fl-fl/MSA4af2_2_6G04_mixed_ali-fl-fl_unrelaxed_rank_2_model_5_v2.pdb 7.45 1.04 7.08 3.10 8.22 50.46 8.33 74.58 1.17 Medium 0.67 Medium 0 

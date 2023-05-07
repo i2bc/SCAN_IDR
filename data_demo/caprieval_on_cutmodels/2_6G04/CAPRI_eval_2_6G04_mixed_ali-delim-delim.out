@@ -1,0 +1,26 @@
+# file RMSAvsA RMSBvsB RMSABvsAB LRMSA LRMSB FRNAT FRNNAT FRIR IRMS CAPRIrank DockQ DockQrank ref_index
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_3_model_4_v4.pdb 4.45 1.06 4.24 2.03 5.31 50.46 5.17 75.42 1.10 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_5_model_5_v2.pdb 4.33 1.11 4.13 2.18 5.64 50.46 5.17 70.34 1.18 Medium 0.69 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_2_model_1_v2.pdb 4.26 1.04 4.06 1.89 4.98 50.46 5.17 75.42 1.10 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_4_model_3_v3.pdb 4.48 1.06 4.26 1.98 5.40 48.62 7.02 72.88 1.11 Medium 0.69 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_1_model_2_v3.pdb 4.48 0.99 4.26 1.87 5.25 51.38 5.08 73.73 1.07 Medium 0.71 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_3_model_4_v1.pdb 4.56 1.06 4.34 2.05 5.41 49.54 5.26 74.58 1.10 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_4_model_3_v1.pdb 4.64 1.08 4.41 2.05 5.58 48.62 7.02 72.88 1.11 Medium 0.69 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_5_model_5_v3.pdb 4.36 1.11 4.16 2.23 5.77 50.46 6.78 70.34 1.17 Medium 0.69 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_1_model_1_v5.pdb 4.28 1.05 4.07 1.94 5.11 50.46 6.78 75.42 1.11 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_3_model_4_v3.pdb 4.46 1.03 4.24 1.99 5.24 50.46 5.17 74.58 1.09 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_1_model_2_v2.pdb 4.52 1.00 4.29 1.86 5.30 51.38 5.08 74.58 1.08 Medium 0.71 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_2_model_2_v5.pdb 4.53 1.02 4.30 1.90 5.37 50.46 5.17 73.73 1.09 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_3_model_4_v2.pdb 4.51 1.03 4.29 1.94 5.21 50.46 5.17 75.42 1.08 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_4_model_3_v2.pdb 4.52 1.08 4.30 1.94 5.38 45.87 5.66 73.73 1.15 Medium 0.68 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_2_model_2_v4.pdb 4.57 1.01 4.34 1.91 5.38 51.38 5.08 73.73 1.08 Medium 0.71 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_2_model_1_v3.pdb 4.28 1.04 4.07 1.91 5.03 50.46 5.17 75.42 1.10 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_5_model_3_v5.pdb 4.47 1.09 4.25 2.02 5.44 46.79 5.56 70.34 1.18 Medium 0.68 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_1_model_1_v1.pdb 4.30 1.06 4.09 1.97 5.14 50.46 5.17 75.42 1.10 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_4_model_3_v4.pdb 4.61 1.08 4.38 2.00 5.53 48.62 5.36 71.19 1.16 Medium 0.69 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_2_model_2_v1.pdb 4.51 1.02 4.29 1.92 5.35 51.38 5.08 74.58 1.08 Medium 0.71 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_4_model_5_v5.pdb 4.50 1.11 4.29 2.25 5.87 51.38 5.08 70.34 1.18 Medium 0.69 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_3_model_4_v5.pdb 4.45 1.05 4.24 1.98 5.26 50.46 5.17 75.42 1.10 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_5_model_5_v1.pdb 4.44 1.11 4.24 2.19 5.73 49.54 6.90 70.34 1.14 Medium 0.69 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_1_model_1_v4.pdb 4.31 1.04 4.10 1.92 5.05 50.46 5.17 74.58 1.10 Medium 0.70 Medium 0 
+af2_2_6G04_mixed_ali-delim-delim/MSA4af2_2_6G04_mixed_ali-delim-delim_unrelaxed_rank_5_model_5_v4.pdb 4.40 1.13 4.20 2.30 5.88 49.54 6.90 69.49 1.19 Medium 0.68 Medium 0 

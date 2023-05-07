@@ -1,0 +1,26 @@
+# file RMSAvsA RMSBvsB RMSABvsAB LRMSA LRMSB FRNAT FRNNAT FRIR IRMS CAPRIrank DockQ DockQrank ref_index
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_5_model_1_v3.pdb 0.78 1.85 1.24 2.65 2.39 75.76 7.41 93.51 1.29 Medium 0.75 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_4_model_3_v5.pdb 0.76 1.58 1.14 2.38 3.97 77.27 5.56 96.10 1.19 Medium 0.77 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_1_model_5_v4.pdb 0.58 1.43 1.09 2.52 4.51 74.24 5.77 97.40 1.19 Medium 0.76 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_5_model_1_v5.pdb 0.84 1.92 1.32 2.82 2.90 75.76 9.09 96.10 1.37 Medium 0.73 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_3_model_4_v5.pdb 0.64 1.85 1.14 2.58 2.35 77.27 7.27 97.40 1.23 Medium 0.76 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_1_model_5_v2.pdb 0.58 1.63 1.14 2.66 4.88 72.73 7.69 96.10 1.25 Medium 0.74 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_3_model_4_v2.pdb 0.67 1.80 1.23 2.82 3.52 72.73 12.73 97.40 1.33 Medium 0.73 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_1_model_5_v1.pdb 0.50 1.26 0.81 1.74 2.51 81.82 5.26 97.40 0.86 High 0.84 High 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_5_model_1_v4.pdb 0.80 1.82 1.24 2.65 2.59 78.79 7.14 96.10 1.29 Medium 0.76 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_3_model_4_v1.pdb 0.61 1.63 1.05 2.36 2.43 80.30 10.17 97.40 1.13 Medium 0.79 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_4_model_3_v4.pdb 0.70 1.52 1.07 2.26 3.44 78.79 5.45 97.40 1.12 Medium 0.79 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_2_model_2_v4.pdb 0.58 1.45 0.93 1.96 2.79 83.33 6.78 97.40 0.98 High 0.83 High 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_4_model_3_v1.pdb 0.69 1.49 1.03 2.14 3.13 81.82 5.26 96.10 1.07 Medium 0.81 High 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_2_model_2_v5.pdb 0.64 1.53 1.12 2.54 4.15 75.76 7.41 98.70 1.21 Medium 0.76 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_1_model_5_v5.pdb 0.58 1.71 1.15 2.65 4.85 71.21 7.84 96.10 1.25 Medium 0.74 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_5_model_1_v2.pdb 0.73 2.01 1.40 3.29 3.78 71.21 9.62 97.40 1.52 Medium 0.69 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_2_model_2_v1.pdb 0.57 1.30 0.86 1.79 2.63 84.85 6.67 96.10 0.90 High 0.85 High 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_4_model_3_v2.pdb 0.73 1.44 1.06 2.18 3.50 80.30 5.36 96.10 1.10 Medium 0.80 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_1_model_5_v3.pdb 0.58 1.43 1.08 2.51 4.47 74.24 5.77 97.40 1.18 Medium 0.76 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_5_model_1_v1.pdb 0.73 1.98 1.40 3.30 3.70 71.21 7.84 94.81 1.51 Medium 0.69 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_2_model_2_v2.pdb 0.57 1.37 0.87 1.77 3.12 86.36 5.00 96.10 0.91 High 0.85 High 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_4_model_3_v3.pdb 0.80 1.50 1.10 2.15 3.57 80.30 5.36 97.40 1.13 Medium 0.79 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_3_model_4_v4.pdb 0.60 1.62 1.08 2.47 3.12 78.79 10.34 97.40 1.16 Medium 0.78 Medium 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_2_model_2_v3.pdb 0.58 1.28 0.86 1.73 2.94 89.39 4.84 97.40 0.89 High 0.86 High 0 
+af2_1_5V1U_single_pep-delim-100/MSA4af2_1_5V1U_single_pep-delim-100_unrelaxed_rank_3_model_4_v3.pdb 0.61 1.69 1.07 2.41 2.57 78.79 7.14 97.40 1.15 Medium 0.78 Medium 0 

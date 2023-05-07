@@ -1,0 +1,270 @@
+Bootstrap: docker
+From: nvidia/cuda:11.1.1-cudnn8-runtime-ubuntu20.04
+
+%setup
+#section are first executed on the host system outside of the container after the base OS has been installed. . You can reference the container file system with the $SINGULARITY_ROOTFS environment variable in the %setup section
+
+
+%files
+#The %files section allows you to copy files into the container with greater safety than using the %setup section. Its general form is
+#Useless for now.
+
+%environment
+  #Define environment variable that will be executed at each runtime.
+  export TF_FORCE_UNIFIED_MEMORY=1
+  export XLA_PYTHON_CLIENT_MEM_FRACTION=4.0
+  export OPENMM_CPU_THREADS=32
+  export CUDA=11.1
+  export PATH=/opt/MMseqs2/build/bin/:$PATH
+
+  #PATH
+  export PATH=/usr/local/cuda-11.1/bin:$PATH
+  export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64:$LD_LIBRARY_PATH
+  export PATH=/opt/conda/bin:$PATH
+  export XDG_CACHE_HOME=/opt/cache
+  export COLABFOLDDIR=/opt/conda/lib/python3.7/site-packages/colabfold
+
+
+%post -c /bin/bash
+
+  #Redefine the variables
+  export CUDA=11.1
+  export XDG_CACHE_HOME=/opt/cache
+  export COLABFOLDDIR=/opt/conda/lib/python3.7/site-packages/colabfold
+
+
+  #Install necessary packages
+  echo "
+  
+  =======STARTING APT INSTALL=======
+  
+  "
+  apt-get update
+  DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        build-essential \
+        tzdata \
+        cuda-command-line-tools-${CUDA/./-} 
+
+  echo "
+  
+  =======STARTING INSTALL 2=======
+  
+  "  is:issue is:open 
+  apt-get update
+  DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        cmake \
+        hmmer \
+        kalign \
+        wget \
+        curl \
+        vim \
+        nano \
+        git \
+        gcc \
+        mpi \
+        openmpi-bin \
+        openmpi-common \
+        libopenmpi-dev \
+        libgtk2.0-dev \
+        libfontconfig1-dev \
+        libfreetype6-dev \
+        libfreetype6 
+  rm -Rf /var/lib/apt/lists/*
+
+  echo "
+  
+  =======INSTALLING MMSEQS2=======
+  
+  "
+
+  # Install MMSEQS - using the latest verified version on github (master commit a5d49655330d144788c6e1bf8551d7cc1d356b0c 23 Jan 2023)
+  cd  /opt && \
+  git clone https://github.com/soedinglab/MMseqs2.git && \
+  cd MMseqs2 && \
+  git checkout a5d49655330d144788c6e1bf8551d7cc1d356b0c && \
+  mkdir build && \
+  cd build && \
+  cmake -DCMAKE_BUILD_TYPE=RELEASE -DHAVE_MPI=1 -DCMAKE_INSTALL_PREFIX=. -DHAVE_AVX2=1 .. && \
+  make && \
+  make install && \
+  export PATH=/opt/MMseqs2/build/bin/:$PATH
+
+  echo "
+  
+  =======INSTALLING MINICONDA=======
+  
+  "
+
+  # Install Miniconda package manager
+  wget -q -P /tmp \
+    https://repo.anaconda.com/miniconda/Miniconda3-py37_4.9.2-Linux-x86_64.sh \
+      && bash /tmp/Miniconda3-py37_4.9.2-Linux-x86_64.sh -b -p /opt/conda \
+      && rm /tmp/Miniconda3-py37_4.9.2-Linux-x86_64.sh
+  export PATH=/opt/conda/bin:$PATH
+
+  echo "
+  
+  =======INSTALLING OPENMM/PDBFIXER=======
+  
+  "
+
+  # Install necessary soft with conda
+  conda update -qy conda \
+      && conda install -y -c conda-forge \
+        openmm=7.5.1 \
+        pdbfixer \
+        pip \
+        #cudatoolkit==${CUDA} \
+
+  echo "
+  
+  =======INSTALLING ALIGNMENT TOOLS=======
+  
+  "
+
+  # Install alignment tools
+  conda install -c conda-forge -c bioconda kalign3=3.2.2 hhsuite=3.3.0 -y
+
+  echo "
+  
+  =======INSTALLING COLABFOLD=======
+  
+  "
+
+  # Install ColabFold (latest verified version on github commit 38e21e3 on 23 Jan 2023) and Jaxlib
+  conda config --set ssl_verify no
+  python -m pip install --default-timeout=300 --no-warn-conflicts "colabfold[alphafold] @ git+https://github.com/sokrypton/ColabFold@38e21e30f44df8a7a3aa6b8ddc0c4a4826b43e1a"
+  python -m pip install --default-timeout=300 https://storage.googleapis.com/jax-releases/cuda11/jaxlib-0.3.15+cuda11.cudnn82-cp37-none-manylinux2014_x86_64.whl
+  python -m pip install --default-timeout=300 jax==0.3.15
+  # add permissions to libs in case it's not already done as it may cause a few weird error messages later on
+  chmod g+w -R /opt/conda/lib/python3.7/site-packages/
+  chmod a+xr -R /opt/conda/lib/python3.7/site-packages/
+
+  echo "
+  
+  =======RUNNING PATCHES=======
+  
+  "
+
+  # Patch Colabfold batch.py to remove environment variable for GPU memory. Those variable are set up externally
+  # Colabfold v1.3.0 March 2022 doesnt have random seed, those changes come about later on in Oct 2022 but arent integrated in a stable release yet.
+  cd /opt/conda/lib/python3.7/site-packages/colabfold/ && \
+  echo '--- batch.py
++++ batch.py
+@@ -2,8 +2,8 @@ from __future__ import annotations
+ 
+ import os
+ 
+-os.environ["TF_FORCE_UNIFIED_MEMORY"] = "1"
+-os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = "2.0"
++# os.environ["TF_FORCE_UNIFIED_MEMORY"] = "1"
++# os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = "2.0"
+ 
+ import json
+ import logging
+@@ -1745,7 +1745,7 @@ def main():
+             f"--max-msa can not be used in combination with AlphaFold2-multimer (--max-msa ignored)"
+         )
+         args.max_msa = None
+-    download_alphafold_params(model_type, data_dir)
++    data_dir = download_alphafold_params(model_type, data_dir)
+     uses_api = any((query[2] is None for query in queries))
+     if uses_api and args.host_url == DEFAULT_API_SERVER:
+         print(ACCEPT_DEFAULT_TERMS, file=sys.stderr)
+' > add_predefined_params_folder.patch && \
+  patch -p0 -N -f -s -i add_predefined_params_folder.patch && \
+  rm add_predefined_params_folder.patch 
+
+  cd /opt/conda/lib/python3.7/site-packages/colabfold/ && \
+  echo '--- download.py
++++ download.py
+@@ -1,7 +1,7 @@
+ import logging
+ import tarfile
+ from pathlib import Path
+-
++import os
+ import appdirs
+ import tqdm
+ 
+@@ -9,29 +9,35 @@ logger = logging.getLogger(__name__)
+ 
+ # The data dir location logic switches between a version with and one without "params" because alphafold
+ # always internally joins "params". (We should probably patch alphafold)
+-default_data_dir = Path(appdirs.user_cache_dir(__package__ or "colabfold"))
++# default_data_dir = Path(appdirs.user_cache_dir(__package__ or "colabfold"))
++default_data_dir = Path(os.environ["TMPDIR"])
+ 
+ 
+ def download_alphafold_params(model_type: str, data_dir: Path = default_data_dir):
+     import requests
+ 
+-    params_dir = data_dir.joinpath("params")
+     if model_type == "AlphaFold2-multimer-v2":
+         url = "https://storage.googleapis.com/alphafold/alphafold_params_colab_2022-03-02.tar"
++        data_dir = data_dir.joinpath("complexes_multimer-v2")
++        params_dir = data_dir.joinpath("params")
+         success_marker = params_dir.joinpath(
+             "download_complexes_multimer-v2_finished.txt"
+         )
+     elif model_type == "AlphaFold2-multimer-v1":
+         url = "https://storage.googleapis.com/alphafold/alphafold_params_colab_2021-10-27.tar"
++        data_dir = data_dir.joinpath("complexes_multimer-v1")
++        params_dir = data_dir.joinpath("params")
+         success_marker = params_dir.joinpath(
+             "download_complexes_multimer-v1_finished.txt"
+         )
+     else:
+         url = "https://storage.googleapis.com/alphafold/alphafold_params_2021-07-14.tar"
++        data_dir = data_dir.joinpath("monomere")
++        params_dir = data_dir.joinpath("params")
+         success_marker = params_dir.joinpath("download_finished.txt")
+ 
+     if success_marker.is_file():
+-        return
++        return data_dir
+ 
+     params_dir.mkdir(parents=True, exist_ok=True)
+     response = requests.get(url, stream=True)
+@@ -47,6 +53,7 @@ def download_alphafold_params(model_type: str, data_dir: Path = default_data_dir
+         file.extractall(path=params_dir)
+     success_marker.touch()
+ 
++    return data_dir
+ 
+ if __name__ == "__main__":
+     # TODO: Arg to select which one
+' > change_tmpdir_download.patch && \
+  patch -p0 -N -f -s -i change_tmpdir_download.patch && \
+  rm change_tmpdir_download.patch
+
+  # #Apply patches and parameters
+  # cd $COLABFOLDDIR
+  # sed -i -e "s#props_path = \"stereo_chemical_props.txt\"#props_path = \"${COLABFOLDDIR}/stereo_chemical_props.txt\"#" batch.py
+  # wget -q https://git.scicore.unibas.ch/schwede/openstructure/-/raw/7102c63615b64735c4941278d92b554ec94415f8/modules/mol/alg/src/stereo_chemical_props.txt
+  # wget https://raw.githubusercontent.com/deepmind/alphafold/main/docker/openmm.patch
+  # (cd  /opt/conda/lib/python3.7/site-packages; wget https://raw.githubusercontent.com/deepmind/alphafold/main/docker/openmm.patch; patch -s -p0 < openmm.patch; rm openmm.patch)
+  # (cd  /opt/conda/lib/python3.7/site-packages/colabfold/; wget https://raw.githubusercontent.com/tubiana/colabfold_singularity/main/matplotlib.patch; patch -s -p0 < matplotlib.patch; rm matplotlib.patch)
+
+%labels
+  author Thibault Tubiana [Chloe Quignot: mmseqs installation via git (latest verified release version a5d4965) + colabfold defined to latest verified release (master branch commit 38e21e3)] 
+
+
+%help
+  Singularity for running colabfold localy. 
+  NOTE :
+   - databases like Uniref30 or other are too big to be placed in the container. Therefore your need to download them and place them outside (check https://colabfold.mmseqs.com). Give this folder later to the picture (see usage).
+   - alphafold parameters are downloaded outsite of the container as well. You will need to give a specific folder for that as well.
+  
+  USAGE:
+   1. Define location folder of 
+      - DATABASES: Root folder that the database (should have "uniref30" inside etc..)
+      - PARAMS_DIR: fodler that will contain Alphafold Cache File, corresponds to XDG_CACHE_HOME
+
+   2. You can setup a shortcut for the singularity container with:
+      SINGULARITYCOMAND="singularity exec \
+      -B $PWD,${DATABASES},${PARAMS_DIR}:/opt/cache/colabfold \
+      --nv ${IMAGESINGULARITY}"
+
+  3. Run colabfold_batch and colabfold_search with command like :
+  CUDA_VISIBLE_DEVICES=0 $SINGULARITYCOMAND colabfold_batch your_msa.a3m your_outdir/

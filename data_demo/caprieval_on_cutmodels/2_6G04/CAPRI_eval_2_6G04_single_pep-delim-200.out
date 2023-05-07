@@ -1,0 +1,26 @@
+# file RMSAvsA RMSBvsB RMSABvsAB LRMSA LRMSB FRNAT FRNNAT FRIR IRMS CAPRIrank DockQ DockQrank ref_index
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_3_model_3_v3.pdb 4.85 0.99 4.61 2.03 5.30 53.21 6.45 75.42 1.04 Medium 0.72 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_1_model_1_v3.pdb 4.44 1.04 4.22 1.93 4.91 51.38 5.08 75.42 1.07 Medium 0.71 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_5_model_4_v2.pdb 4.77 4.71 21.99 68.11 73.43 0.00 0.00 0.00 25.82 Incorrect 0.01 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_2_model_5_v4.pdb 4.78 0.97 4.53 1.83 5.18 55.05 4.76 77.97 1.02 Medium 0.73 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_4_model_1_v2.pdb 4.45 2.84 20.31 63.27 68.66 0.00 0.00 0.00 23.72 Incorrect 0.01 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_2_model_5_v3.pdb 4.81 1.00 4.57 1.94 5.24 54.13 4.84 77.97 1.03 Medium 0.72 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_1_model_5_v5.pdb 4.77 0.97 4.52 1.81 5.14 55.05 4.76 77.97 1.02 Medium 0.73 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_5_model_2_v1.pdb 4.63 6.39 25.09 79.35 80.36 0.00 0.00 0.00 28.96 Incorrect 0.00 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_1_model_1_v4.pdb 4.40 1.03 4.18 1.88 4.84 51.38 5.08 76.27 1.06 Medium 0.71 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_1_model_1_v1.pdb 4.45 1.04 4.23 1.96 4.95 51.38 5.08 75.42 1.07 Medium 0.71 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_4_model_2_v4.pdb 4.61 6.71 26.03 82.65 81.60 0.00 0.00 0.00 29.93 Incorrect 0.00 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_3_model_3_v5.pdb 4.80 1.00 4.57 2.06 5.26 52.29 6.56 75.42 1.05 Medium 0.71 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_4_model_2_v5.pdb 4.64 6.46 25.63 81.13 80.71 0.00 0.00 0.00 29.52 Incorrect 0.00 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_4_model_4_v1.pdb 4.84 4.99 21.84 67.75 72.76 0.00 0.00 0.00 25.63 Incorrect 0.01 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_5_model_4_v5.pdb 4.86 4.46 22.35 68.64 75.62 0.00 0.00 0.00 26.23 Incorrect 0.01 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_3_model_3_v4.pdb 4.69 0.98 4.45 1.97 5.12 53.21 4.92 75.42 1.04 Medium 0.72 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_3_model_2_v2.pdb 4.58 5.90 24.99 78.87 78.42 0.00 0.00 0.00 28.75 Incorrect 0.00 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_4_model_4_v3.pdb 5.08 1.15 4.83 2.19 5.95 52.29 3.39 74.58 1.15 Medium 0.70 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_3_model_3_v1.pdb 4.74 0.97 4.50 1.95 5.14 53.21 4.92 75.42 1.03 Medium 0.72 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_2_model_3_v2.pdb 4.70 0.97 4.46 1.96 5.10 53.21 4.92 75.42 1.04 Medium 0.72 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_5_model_2_v3.pdb 4.73 7.22 21.08 65.93 67.69 0.00 0.00 0.00 24.57 Incorrect 0.01 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_5_model_4_v4.pdb 4.73 5.18 24.62 78.53 75.59 0.00 0.00 0.00 28.31 Incorrect 0.00 Incorrect 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_2_model_5_v1.pdb 4.83 0.97 4.58 1.84 5.22 55.05 4.76 77.97 1.02 Medium 0.73 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_2_model_1_v5.pdb 4.46 1.05 4.24 1.98 4.94 51.38 5.08 75.42 1.07 Medium 0.71 Medium 0 
+af2_2_6G04_single_pep-delim-200/MSA4af2_2_6G04_single_pep-delim-200_unrelaxed_rank_1_model_5_v2.pdb 4.70 0.98 4.46 1.83 5.09 55.05 4.76 77.97 1.02 Medium 0.73 Medium 0 
