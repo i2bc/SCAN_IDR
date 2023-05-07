@@ -39,8 +39,9 @@ Most of the dependencies are installed upon the creation of the `scan_idr` conda
 Independent installation of [MMseqs2](https://github.com/soedinglab/MMseqs2), [ColabFold](https://github.com/sokrypton/ColabFold),  and [ProFit](http://www.bioinf.org.uk/software/profit/) softwares are required to run the full pipeline (install time ~ 20 minutes).<br>
 
 - ***[MMseqs2](https://github.com/soedinglab/MMseqs2)***: This software is used in [Step 3](#step3) to generate the initial multiple sequence alignments. A suitably advanced version of MMseqs2 must be obtained from the github repository.<br>
-  - Retrieve the program code with the commands below. Instructions taken from [compile-from-source-under-linux](https://github.com/soedinglab/MMseqs2/wiki#compile-from-source-under-linux) <br>
-  - Modify the line `<your_path>/MMseqs2/bin/mmseqs` with the correct path in the `SCAN_IDR/scripts/config.ini` file<br>
+  - Retrieve the program executable with the commands below (*Instructions taken from [compile-from-source-under-linux](https://github.com/soedinglab/MMseqs2/wiki#compile-from-source-under-linux))*. <br>
+  - Modify the line `<your_path>/MMseqs2/bin/mmseqs` with the correct path in the `SCAN_IDR/scripts/config.ini` file.<br>
+<a/>
 
 
     git clone https://github.com/soedinglab/MMseqs2.git
@@ -57,10 +58,11 @@ Independent installation of [MMseqs2](https://github.com/soedinglab/MMseqs2), [C
 - ***[Colabfold](https://github.com/sokrypton/ColabFold)***: The `scan_idr` pipeline uses a colabfold singularity image to run AlphaFold2 in [Step 4](#step4). <br>
   - The singularity software v3.8.6 is installed at the creation of the `scan_idr` conda environment. <br>
   - A singularity definition file is provided in `SCAN_IDR/colabfold_v1_3_0.def` to build the `colabfold_container_v13.sif` image file (adapted from [Tubiana](https://github.com/tubiana/colabfold_singularity)). The generated singularity file `colabfold_container_v13.sif` corresponds to an image of the colabfold version 1.3 compatible with the `scan_idr` pipeline.<br>
-  - To create the colabfold singularity image, root privilege is needed and the command below may more easily be performed on a local linux machine even without GPUs.<br>
-  - Once built, the file `colabfold_container_v13.sif` can be copied to the machine running the `scan_idr` pipeline such as a server or a cluster with GPUs. <br>
-  - Modify the line `<your_path>/colabfold_container_v13.sif` with the correct path in the `SCAN_IDR/scripts/config.ini` file<br>
+  - To create the colabfold singularity image, root privilege is needed and the command below may be more easily performed on a local linux machine even without GPUs.<br>
+  - Once built, the file `colabfold_container_v13.sif` can be copied to the machine running the `scan_idr` pipeline such as a server or a cluster preferentially with GPUs. <br>
+  - Modify the line `<your_path>/colabfold_container_v13.sif` with the correct path in the `SCAN_IDR/scripts/config.ini` file.<br>
   - Build the `.sif` image with :
+<a/>
 
 
     sudo singularity build colabfold_container_v13.sif colabfold_v1_3_0.def
@@ -75,7 +77,8 @@ The ProFit software is freely available at http://www.bioinf.org.uk/software/pro
     - Modify the line `<your_path>/ProFitV3.3/bin/profit` with the correct path in the `SCAN_IDR/scripts/config.ini` file<br>
     - Create the environment variables HELPDIR and DATADIR which should both point to the top ProFit directory where the
        files ProFit.help and mdm78.mat are stored: <br>
-                               
+<a/>
+
 
     export HELPDIR=<your_path>/ProFitV3.3
     export DATADIR=<your_path>/ProFitV3.3
@@ -86,6 +89,8 @@ The ProFit software is freely available at http://www.bioinf.org.uk/software/pro
   - Modify the line `<your_path>/uniref30_2202/uniref30_2202_db` with the correct path in the `SCAN_IDR/scripts/config.ini` file. <br>
   - Searches against this ColabFoldDB requires a machine with ~ 128GB RAM.<br>
   - Run the following command to download and install the database: <br>
+<a/>
+
 
           sh install_uniref30_2202_db.sh
 
@@ -100,6 +105,7 @@ The ProFit software is freely available at http://www.bioinf.org.uk/software/pro
     cd SCAN_IDR/scripts
     ./1_batch_download.sh -f <WORKING_DIR>/data/list_cif.txt -o <WORKING_DIR>/data/cif -c
 
+- As a default option, `<WORKING_DIR>` can be left unchanged as `../` in the `SCAN_IDR/scripts/config.ini` file. <br>
 - Output: PDB files will be stored in the directory `<WORKING_DIR>/data/cif/` with the mmcif format  
 
 ## Step 2: Parse mmcif files and get uniprot ID and delimitations <a id="step2"></a>
@@ -109,7 +115,7 @@ The ProFit software is freely available at http://www.bioinf.org.uk/software/pro
 
 - Output: File listing the uniprot ID and delimitations of the chains : `File_Listing_Uniprot_Inputs.txt`
 
-The uniprot and delimitations are automatically extracted from the `cif`file. <br>
+The uniprot and delimitations are automatically extracted from the `.cif` files. <br>
 In case the information is not found, the value is replaced by `???`.  
 File can be edited and corrected manually following the format :
 
@@ -118,7 +124,7 @@ File can be edited and corrected manually following the format :
     CHAIN:B	UNIPROT:P43563	START:46	STOP:287
     CHAIN:D	UNIPROT:P24276	START:205	STOP:214
 
- Edit and correct the file `File_Listing_Uniprot_Inputs.txt` if required.
+ Edit and correct the file `File_Listing_Uniprot_Inputs.txt` if required. *The file provided in `SCAN_IDR/data/File_Listing_Uniprot_Inputs.txt` was automatically generated and had to be corrected for a few entries of the 42 dataset cases.* <br> 
  
 ## Step 3: Generate the MSAs for every unicode entry <a id="step3"></a>
 
@@ -130,12 +136,12 @@ Command to run: <br>
 Use the information in `File_Listing_Uniprot_Inputs.txt`<br>
 - Retrieve the fasta file for every entry from uniprot db and store it in `<WORKING_DIR>/data/fasta_msa`
 - Create a command file `<WORKING_DIR>/data/fasta_msa/cmd_create_alignments.sh` that will : <br>
-    - Run mmseqs on every fasta input
-    - Retrieve __full-length sequence__ of every homolog from the resulting MSA
-    - Realign __full-length sequences__ using mafft
+    - Run mmseqs on every fasta input.
+    - Retrieve __full-length sequence__ of every homolog from the resulting MSA.
+    - Realign __full-length sequences__ using `mafft` software installed in the conda environment.
 
 Move to `<WORKING_DIR>/data/fasta_msa/` where the `cmd_create_alignments.sh` script was created. <br>
-This script can be edited if required to modify the generic values of parameters such as QID, COV for specific entries <br>
+*This script can be edited if required to modify the generic values of parameters such as QID, COV for specific entries.* <br>
 Then, run:
 
     sh cmd_create_alignments.sh
@@ -175,11 +181,12 @@ Move to `<WORKING_DIR>/data/af2_runs/` to run :
 
     sh cmd_global_af2runs.sh
 
-*NB: If needed, each of these protocols can be generated individually using : `python 4_PrepareDirectoryforAF2.py -i <protocol_name>`*<br>
+*If needed, each of these protocols can be generated individually using :<br> `python 4_PrepareDirectoryforAF2.py -i <protocol_name>`*<br>
 
-- Explanations of the format of the protocol names: `<MSA_mode>-<Receptor_Delimitations>-<Ligand_Delimitations>`<br>
-`<MSA_mode>`: can be either `mixed` (paired+unpaired), `unpaired` or `single_pep` (no MSA, only single sequence)<br>
-`<Delimitations>`: can be `delim` (same delimitations as in the reference PDB), `fl` (full-length sequence), `100` or `200` (delimitations of the reference PDB extended by this number)
+- Explanations of the format of the protocol names: <br>
+`<MSA_mode>-<Receptor_Delimitations>-<Ligand_Delimitations>`<br>
+  - `<MSA_mode>`: can be either `mixed` (paired+unpaired), `unpaired` or `single_pep` (no MSA, only single sequence)<br>
+  - `<Delimitations>`: can be `delim` (same delimitations as in the reference PDB), `fl` (full-length sequence), `100` or `200` (delimitations of the reference PDB extended by this number)
 
 ## Step 5: After AF2 has finished, cut of the models to the same delimitations as in the reference PDB to enable CAPRI-like evaluation <a id="step5"></a>
 
@@ -252,7 +259,7 @@ Move to `<WORKING_DIR>/scripts/post_process` to run each of these notebooks: <br
 4. File `Report_DatasetProperties_BoxPlots_lengths.ipynb`<br>
    * *Plots as box plots the length distributions of the systems studied*<br> 
 
-*NB: Depending if you changed the definition of your `WORKING_DIR` in the `config.ini` file, the path defining WORKING_DIR variable in the Jupyter notebooks may need to be adjusted* 
+*Depending if you changed the definition of your `WORKING_DIR` in the `config.ini` file, the path defining WORKING_DIR variable in the Jupyter notebooks may need to be adjusted* 
 
 ## Running a <a id="demo_section">demo example</a> 
 
@@ -260,17 +267,17 @@ To test the pipeline, it is possible to work on one or two pdb codes rather than
 To do so, edit the `SCAN_IDR/data/list_cif.txt` and change the comma separated list of PDB codes. <br>
 
 We provide a `SCAN_IDR/data_demo/` folder as an example of a simple input with two PDB entries with all the outputs that are expected to be generated from Step 1 to 10: <br>
-- First, uncompress the large directories in `SCAN_IDR/data_demo/`: `fasta_msa.tar.gz`, `af2_runs.tar.gz` and `cutmodels_for_caprieval.tar.gz`  
+- First, uncompress the large directories in `SCAN_IDR/data_demo/`: <br>`fasta_msa.tar.gz`, `af2_runs.tar.gz` and `cutmodels_for_caprieval.tar.gz`  
 - The file `SCAN_IDR/data_demo/list_cif.txt` can be copied to your `<WORKING_DIR>/data/` and used as input of [**Steps 1 to 10**](#steps) to run only 2 cases. <br> 
 - If you want to run the pipeline starting at a specific Step, the entire content of `SCAN_IDR/data_demo/` can be copied to `<WORKING_DIR>/data/`. Thanks to that, all the files and folders required to run every Step independently will be accessible. For instance, it is then possible to start running the pipeline at Step 5 and all next steps subsequently. <br>
   *NB: Only to run the last step Step 10, you need to have at least run Step 9 on your system.*<br> 
 
-The files and folders from the `SCAN_IDR/data_demo/` can be compared to the outputs of the pipeline. <br>
+The files and folders from the `SCAN_IDR/data_demo/` can be compared to the outputs generated by the pipeline. <br>
 - Indicative times for the execution of the demo: <br>
   - Step 1: < 1 min <br>
   - Step 2: < 1 min <br>
   - Step 3: 5 min (including python script and MSA generation on 80 CPU) <br>
-  - Step 4: 1-2 min for the python script + 5 hours to run AlphaFold on a single A100 GPU (can be bypassed by using data_demo af2_runs files)  <br>
+  - Step 4: 1-2 min for the python script + 5 hours to run AlphaFold on a single A100 GPU (can be bypassed by using `data_demo/af2_runs` files)  <br>
   - Step 5: 10 min <br>
   - Step 6: <1 min for the python script + 5 min for running CAPRI evaluation <br>
   - Step 7: <1 min <br>
