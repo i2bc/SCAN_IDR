@@ -11,7 +11,7 @@ FASTA_FILE=$1 # change the name of the a3m file paired/mixed or other
 export SINGULARITYENV_CUDA_VISIBLE_DEVICES=0 # Set to 0 or 1 to select a specific GPU card or remove the line
 PARAMETERS='AlphaFold2-multimer-v2' # use PARAMETERS='AlphaFold2-ptm' for running the monomer-based parameters
 NUMBER_OF_MODELS=5
-NUMBER_OF_RECYCLES=6
+NUMBER_OF_RECYCLES=3
 NUMBER_OF_REPEATS=5 # changing the random seed
 
 ######### IN GENERAL, BELOW THIS LINE, DO NOT MODIFY UNLESS EXPERT USAGE
