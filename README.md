@@ -201,6 +201,8 @@ Command to run in `<WORKING_DIR>/scripts`:
 
 ## Step 6: Run the evaluation of the models using CAPRI criteria <a id="step6"></a>
 
+Prior to this step, the user should make sure that the REFERENCE_DIR defined in the config.ini file contains reference file for respective test cases. For the demo (5V1U and 6G04), these files can be found in the data_demo/ref_capri_curated folder. The script expects syntax of the file names to be pdb_chain1-chain2.pdb where pdb is the same code as in list_cif.txt and chain1, chain2 refer to the chains that should be used for evaluation of the models.
+
 Command to run in `<WORKING_DIR>/scripts`: 
 
     python 6_RunCapri.py 
